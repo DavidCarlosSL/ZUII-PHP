@@ -1,0 +1,419 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: 09-Maio-2019 às 23:06
+-- Versão do servidor: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `zuii`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `album`
+--
+
+CREATE TABLE `album` (
+  `cd_album` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `nome_album` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `data_lancamento` date DEFAULT NULL,
+  `qnt_musica` decimal(10,0) DEFAULT NULL,
+  `imagem_album` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cd_artista` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `album`
+--
+
+INSERT INTO `album` (`cd_album`, `nome_album`, `data_lancamento`, `qnt_musica`, `imagem_album`, `cd_artista`) VALUES
+('FFvX3DPQzl', 'Escape', '1981-07-17', '10', 'images/albums/EscapeJourney.jpg', 'xXSegoKrCx'),
+('ol5cKgM74J', 'Infinity', '1971-01-20', '10', 'images/albums/InfinityJourney.jpg', 'xXSegoKrCx');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `artista`
+--
+
+CREATE TABLE `artista` (
+  `cd_artista` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `nome_artista` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `biografia_artista` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `imagem_artista` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `artista`
+--
+
+INSERT INTO `artista` (`cd_artista`, `nome_artista`, `biografia_artista`, `imagem_artista`) VALUES
+('0NkHpGpI6v', 'Deep Purple', 'Deep Purple Ã© uma banda britÃ¢nica de rock formada em Hertford, Hertfordshire, em 1968. Juntamente com as bandas Black Sabbath e Led Zeppelin, o Deep Purple Ã© considerado um dos pioneiros do heavy metal e do hard rock moderno, embora alguns de seus integrantes tenham tentado nÃ£o se categorizar como apenas um destes gÃªneros.\r\n', 'images/artists/DeepPurple.jpg\r\n'),
+('2tU2vZ4A2H', 'Pink Floyd', 'Pink Floyd foi uma banda britÃ¢nica de rock, formada em Londres em 1965, que atingiu sucesso internacional com sua mÃºsica psicodÃ©lica e progressiva. Seu trabalho foi marcado pelo uso de letras filosÃ³ficas, experimentaÃ§Ãµes musicais, encartes de Ã¡lbuns inovadoras e shows elaborados. O Pink Floyd Ã© um dos grupos de rock mais influentes e comercialmente bem-sucedidos da histÃ³ria.\r\n', 'images/artists/PinkFloyd.jpg\r\n'),
+('5b4kN8XF6N', 'Foo Fighters', 'Foo Fighters, Ã© uma banda de rock dos Estados Unidos formada pelos ex-Nirvana Dave Grohl e Pat Smear em 1994. Seu nome Ã© uma referÃªncia ao termo foo fighter, usado por aviadores na Segunda Guerra Mundial para descrever fenÃ´menos aÃ©reos misteriosos, considerados OVNIs.\r\n', 'images/artists/FooFighters.jpg\r\n'),
+('7NWaujzN5m', 'Iron Maiden', 'Iron Maiden Ã© uma banda britÃ¢nica de heavy metal, formada em 1975 pelo baixista Steve Harris, ex-integrante das bandas Gypsys Kiss e Smiler. O nome Iron Maiden, homÃ´nimo de um instrumento de tortura medieval que aparece no filme O Homem da MÃ¡scara de Ferro, baseado na obra do romancista francÃªs Alexandre Dumas.\r\n', 'images/artists/IronMaiden.jpg\r\n'),
+('alqoXcojiW', 'Guns N Roses', 'Guns N Roses Ã© uma banda americana de hard rock formada em Los Angeles, CalifÃ³rnia, em 1985. A banda jÃ¡ lanÃ§ou seis Ã¡lbuns de estÃºdio, trÃªs EPs e um Ã¡lbum ao vivo.\r\n', 'images/artists/GunsNRoses.jpg\r\n'),
+('dBGe2jD9s1', 'The Beatles', 'The Beatles foi uma banda de rock britÃ¢nica, formada em Liverpool em 1960. Ã‰ o grupo musical mais bem-sucedido e aclamado da histÃ³ria da mÃºsica popular. A partir de 1962, o grupo era formado por John Lennon, Paul McCartney, George Harrison e Ringo Starr. Enraizada do skiffle e do rock and roll da dÃ©cada de 1950, a banda veio mais tarde a assumir diversos gÃªneros que vÃ£o do folk rock ao rock psicodÃ©lico, muitas vezes incorporando elementos da mÃºsica clÃ¡ssica e outros, em formas inovadoras e criativas.\r\n', 'images/artists/TheBeatles.jpg\r\n'),
+('FjbmTxEY3E', 'Scorpions', 'Scorpions Ã© uma banda de rock originÃ¡ria de HanÃ´ver, Alemanha fundada em 1965 pelo guitarrista Rudolf Schenker, sendo a primeira banda de hard rock formada no paÃ­s germÃ¢nico. No inÃ­cio eram chamadas de Nameless, depois passou para The Scorpions atÃ© o final de 1969, depois foram chamados simplesmente de Scorpions.\r\n', 'images/artists/Scorpions.jpg\r\n'),
+('GqXGBusLYX', 'KISS', 'Kiss Ã© uma banda de hard rock dos Estados Unidos, formada em Nova Iorque em 1973 por Paul Stanley e Gene Simmons. Conhecida mundialmente por suas maquiagens, e por seus concertos que incluem guitarras esfumaÃ§antes, cuspir fogo e sangue, pirotecnias e outros efeitos.\r\n', 'images/artists/KISS.jpg\r\n'),
+('LVXdKcQBWS', 'Metallica', 'Metallica Ã© uma banda norte-americana de heavy metal originÃ¡ria de Los Angeles, mas com base em San Francisco. O seu repertÃ³rio inclui tempos rÃ¡pidos, pesados, melÃ³dicos, instrumentais e musicalidade agressiva, a qual os colocou no lugar de pioneiros do thrash metal e uma das bandas fundadoras do Big Four of Thrash, conjuntamente com Slayer, Megadeth e Anthrax.\r\n', 'images/artists/Metallica.jpg\r\n'),
+('MBOd3KIQR9', 'Black Sabbath', 'Black Sabbath foi uma banda de heavy metal britÃ¢nica formada no ano de 1968 em Birmingham pelo guitarrista e principal compositor Tony Iommi, o baixista e principal letrista Geezer Butler, o vocalista Ozzy Osbourne e o baterista Bill Ward.\r\n', 'images/artists/BlackSabbath.jpg\r\n'),
+('N3Nnfh050G', 'Queen', 'Queen foi uma banda britÃ¢nica de rock, fundada em 1970 e ativa, sob sua formaÃ§Ã£o clÃ¡ssica, atÃ© 1991. O grupo, formado por Brian May, Freddie Mercury, John Deacon e Roger Taylor Ã© frequentemente citado como um dos expoentes do seu estilo, tambÃ©m sendo um dos recordistas de vendas de discos a nÃ­vel mundial. A mÃºsica da banda tambÃ©m Ã© conhecida por ser altamente eclÃ©tica, variando entre vÃ¡rias vertentes do rock.\r\n', 'images/artists/Queen.jpg\r\n'),
+('RcIeeYOrYf', 'Led Zeppelin', 'Led Zeppelin foi uma banda britÃ¢nica de rock formada em Londres, em 1968. Consistia no guitarrista Jimmy Page, no vocalista Robert Plant, no baixista e tecladista John Paul Jones e no baterista John Bonham. Seu som pesado e violento de guitarra, enraizado no blues e mÃºsica psicodÃ©lica de seus dois primeiros Ã¡lbuns, Ã© frequentemente reconhecido como um dos fundadores do heavy metal. Seu estilo foi inspirado em uma grande variedade de influÃªncias, incluindo a mÃºsica folk, psicodÃ©lica e o blues.\r\n', 'images/artists/LedZeppelin.jpg\r\n'),
+('uFZ5VUmlGt', 'AC/DC', 'AC/DC Ã© uma banda australiana de rock formada em Sydney, AustrÃ¡lia em 1973, pelos irmÃ£os escoceses Malcolm e Angus Young, sendo considerada umas das maiores e mais bem sucedidas bandas de rock de todos os tempos. O estilo musical da banda Ã© normalmente classificado como hard rock e atÃ© mesmo blues rock. Mas seus membros sempre classificaram a sua mÃºsica simplesmente como rock and roll.\r\n', 'images/artists/ACDC.jpg\r\n'),
+('xXSegoKrCx', 'Journey', 'Journey Ã© uma banda americana de rock formada em 1973 em SÃ£o Francisco, CalifÃ³rnia. A banda passou por diversas fases, sendo mais conhecida pelos sucessos na rÃ¡dio no inÃ­cio da dÃ©cada de 1980, com uma sÃ©rie de baladas como Faithfully, Lights, Open Arms, alÃ©m de outras como Lovin, Touchin, Squeezin, Dont Stop Believin, Any Way You Want It, Separate Ways e Wheel In The Sky.\r\n', 'images/artists/Journey.jpg\r\n'),
+('zcNc6G4Xo0', 'Aerosmith', 'Aerosmith Ã© uma banda norte-americana de rock, por vezes referida como The Bad Boys from Boston e A Maior Banda de Rock and Roll da AmÃ©rica. Seu estilo, enraizado em um hard rock baseado no blues, tambÃ©m incorpora elementos do pop rock, heavy metal e rhythm and blues, e inspirou diversos artistas subsequentes, como os Guns N Roses por exemplo.\r\n', 'images/artists/Aerosmith.jpg\r\n'),
+('ZoWMRgHnji', 'Megadeth', 'Megadeth Ã© uma banda norte-americana de heavy metal liderada por seu fundador, o vocalista e guitarrista Dave Mustaine. O grupo foi formado em 1983, apÃ³s Dave ser demitido do Metallica. Desde entÃ£o, a banda lanÃ§ou quinze Ã¡lbuns de estÃºdio, quatro Ã¡lbuns ao vivo, dois EP e cinco compilaÃ§Ãµes. A banda ganhou fama internacional ligeiramente.\r\n', 'images/artists/Megadeth.jpg\r\n');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `biblioteca`
+--
+
+CREATE TABLE `biblioteca` (
+  `cd_biblioteca` varchar(10) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `biblioteca`
+--
+
+INSERT INTO `biblioteca` (`cd_biblioteca`) VALUES
+('9QhDhZtPOx');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `biblioteca_album`
+--
+
+CREATE TABLE `biblioteca_album` (
+  `cd_biblioteca` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cd_album` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `biblioteca_album`
+--
+
+INSERT INTO `biblioteca_album` (`cd_biblioteca`, `cd_album`) VALUES
+('9QhDhZtPOx', 'ol5cKgM74J'),
+('9QhDhZtPOx', 'FFvX3DPQzl');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `biblioteca_musica`
+--
+
+CREATE TABLE `biblioteca_musica` (
+  `cd_musica` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cd_biblioteca` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `biblioteca_musica`
+--
+
+INSERT INTO `biblioteca_musica` (`cd_musica`, `cd_biblioteca`) VALUES
+('1UkZPW4BaC', '9QhDhZtPOx'),
+('VGA9vTZkRb', '9QhDhZtPOx'),
+('8s76Df5uO8', '9QhDhZtPOx'),
+('b910szZHGy', '9QhDhZtPOx'),
+('EABzFG996I', '9QhDhZtPOx'),
+('hDZViYkDUl', '9QhDhZtPOx'),
+('2xFIQ1RIBe', '9QhDhZtPOx'),
+('uohUBz6FbA', '9QhDhZtPOx');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `compra`
+--
+
+CREATE TABLE `compra` (
+  `cd_compra` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `valor_compra` decimal(10,2) DEFAULT NULL,
+  `data_compra` date DEFAULT NULL,
+  `cd_usu` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `compra`
+--
+
+INSERT INTO `compra` (`cd_compra`, `valor_compra`, `data_compra`, `cd_usu`) VALUES
+('0gzNNDMjjI', '0.40', '2019-07-05', 'NlOALyX3Ay'),
+('LBjc1EYzE0', '0.40', '2019-07-05', 'NlOALyX3Ay'),
+('LyWtP0HH80', '0.40', '2019-07-05', 'NlOALyX3Ay'),
+('o4r3BfbHq0', '0.40', '2019-07-05', 'NlOALyX3Ay'),
+('Q8U5wlfmS9', '0.40', '2019-07-05', 'NlOALyX3Ay'),
+('SRUvZCBWDT', '0.40', '2019-07-05', 'NlOALyX3Ay'),
+('uxRnuamAMI', '0.40', '2019-07-05', 'NlOALyX3Ay'),
+('ZddqNlVFNz', '0.40', '2019-07-05', 'NlOALyX3Ay');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `musica`
+--
+
+CREATE TABLE `musica` (
+  `cd_musica` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `nome_musica` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tempo_duracao` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `preco_musica` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `musica`
+--
+
+INSERT INTO `musica` (`cd_musica`, `nome_musica`, `tempo_duracao`, `preco_musica`) VALUES
+('1UkZPW4BaC', 'Wheel In The Sky', '4:13', '0.40'),
+('2xFIQ1RIBe', 'Dont Stop Believin', '4:09', '0.40'),
+('7ykYcSqKH2', 'Patiently', '3:23', '0.40'),
+('8s76Df5uO8', 'Lights', '3:11', '0.40'),
+('b910szZHGy', 'Anytime', '3:28', '0.40'),
+('CKLrgvB6uv', 'Opened the Door', '4:35', '0.40'),
+('D7ujtLx7uP', 'Lay It Down', '4:13', '0.40'),
+('dPsz9fvIQ9', 'Dead or Alive', '3:21', '0.40'),
+('EABzFG996I', 'Feeling That Way', '3:27', '0.40'),
+('gK49WIEDKS', 'Keep On Runnin', '3:40', '0.40'),
+('hDZViYkDUl', 'Whos Crying Now', '5:02', '0.40'),
+('LYs6Yl8Ome', 'Can Do', '2:39', '0.40'),
+('UCD4yTXtdQ', 'Still They Ride', '3:50', '0.40'),
+('UDUbHGRRQH', 'Somethin to Hide', '3:27', '0.40'),
+('uohUBz6FbA', 'Mother, Father', '5:29', '0.40'),
+('uPCTR1KzA3', 'Escape', '5:17', '0.40'),
+('vFULpFh2Qu', 'La Do Da', '3:01', '0.40'),
+('VGA9vTZkRb', 'Winds of March', '5:05', '0.40'),
+('wmhVULmM4j', 'Open Arms', '3:19', '0.40'),
+('x4nzTX4goL', 'Stone in Love', '4:26', '0.40');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `musica_album`
+--
+
+CREATE TABLE `musica_album` (
+  `cd_album` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cd_musica` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `musica_album`
+--
+
+INSERT INTO `musica_album` (`cd_album`, `cd_musica`) VALUES
+('ol5cKgM74J', '1UkZPW4BaC'),
+('ol5cKgM74J', '7ykYcSqKH2'),
+('ol5cKgM74J', '8s76Df5uO8'),
+('ol5cKgM74J', 'b910szZHGy'),
+('ol5cKgM74J', 'CKLrgvB6uv'),
+('ol5cKgM74J', 'EABzFG996I'),
+('ol5cKgM74J', 'LYs6Yl8Ome'),
+('ol5cKgM74J', 'UDUbHGRRQH'),
+('ol5cKgM74J', 'vFULpFh2Qu'),
+('ol5cKgM74J', 'VGA9vTZkRb'),
+('FFvX3DPQzl', '2xFIQ1RIBe'),
+('FFvX3DPQzl', 'hDZViYkDUl'),
+('FFvX3DPQzl', 'x4nzTX4goL'),
+('FFvX3DPQzl', 'gK49WIEDKS'),
+('FFvX3DPQzl', 'UCD4yTXtdQ'),
+('FFvX3DPQzl', 'uPCTR1KzA3'),
+('FFvX3DPQzl', 'D7ujtLx7uP'),
+('FFvX3DPQzl', 'dPsz9fvIQ9'),
+('FFvX3DPQzl', 'uohUBz6FbA'),
+('FFvX3DPQzl', 'wmhVULmM4j');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `musica_compra`
+--
+
+CREATE TABLE `musica_compra` (
+  `cd_compra` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cd_musica` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `musica_compra`
+--
+
+INSERT INTO `musica_compra` (`cd_compra`, `cd_musica`) VALUES
+('0gzNNDMjjI', '1UkZPW4BaC'),
+('SRUvZCBWDT', 'VGA9vTZkRb'),
+('uxRnuamAMI', '8s76Df5uO8'),
+('ZddqNlVFNz', 'b910szZHGy'),
+('LBjc1EYzE0', 'EABzFG996I'),
+('Q8U5wlfmS9', 'hDZViYkDUl'),
+('LyWtP0HH80', '2xFIQ1RIBe'),
+('o4r3BfbHq0', 'uohUBz6FbA');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `cd_usu` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `nome_usu` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email_usu` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `senha_usu` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `saldo_usu` decimal(10,2) DEFAULT NULL,
+  `cd_biblioteca` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`cd_usu`, `nome_usu`, `email_usu`, `senha_usu`, `saldo_usu`, `cd_biblioteca`) VALUES
+('NlOALyX3Ay', 'Admin', 'admin@zuii', '4fb381f3d973caf9dbdc3f65a1a25352', '0.00', '9QhDhZtPOx');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `album`
+--
+ALTER TABLE `album`
+  ADD PRIMARY KEY (`cd_album`),
+  ADD KEY `cd_artista` (`cd_artista`);
+
+--
+-- Indexes for table `artista`
+--
+ALTER TABLE `artista`
+  ADD PRIMARY KEY (`cd_artista`),
+  ADD UNIQUE KEY `nome_artista` (`nome_artista`);
+
+--
+-- Indexes for table `biblioteca`
+--
+ALTER TABLE `biblioteca`
+  ADD PRIMARY KEY (`cd_biblioteca`);
+
+--
+-- Indexes for table `biblioteca_album`
+--
+ALTER TABLE `biblioteca_album`
+  ADD KEY `cd_biblioteca` (`cd_biblioteca`),
+  ADD KEY `cd_album` (`cd_album`);
+
+--
+-- Indexes for table `biblioteca_musica`
+--
+ALTER TABLE `biblioteca_musica`
+  ADD KEY `cd_musica` (`cd_musica`),
+  ADD KEY `cd_biblioteca` (`cd_biblioteca`);
+
+--
+-- Indexes for table `compra`
+--
+ALTER TABLE `compra`
+  ADD PRIMARY KEY (`cd_compra`),
+  ADD KEY `cd_usu` (`cd_usu`);
+
+--
+-- Indexes for table `musica`
+--
+ALTER TABLE `musica`
+  ADD PRIMARY KEY (`cd_musica`);
+
+--
+-- Indexes for table `musica_album`
+--
+ALTER TABLE `musica_album`
+  ADD KEY `cd_album` (`cd_album`),
+  ADD KEY `cd_musica` (`cd_musica`);
+
+--
+-- Indexes for table `musica_compra`
+--
+ALTER TABLE `musica_compra`
+  ADD KEY `cd_compra` (`cd_compra`),
+  ADD KEY `cd_musica` (`cd_musica`);
+
+--
+-- Indexes for table `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`cd_usu`),
+  ADD KEY `cd_biblioteca` (`cd_biblioteca`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `album`
+--
+ALTER TABLE `album`
+  ADD CONSTRAINT `album_ibfk_1` FOREIGN KEY (`cd_artista`) REFERENCES `artista` (`cd_artista`);
+
+--
+-- Limitadores para a tabela `biblioteca_album`
+--
+ALTER TABLE `biblioteca_album`
+  ADD CONSTRAINT `biblioteca_album_ibfk_1` FOREIGN KEY (`cd_biblioteca`) REFERENCES `biblioteca` (`cd_biblioteca`),
+  ADD CONSTRAINT `biblioteca_album_ibfk_2` FOREIGN KEY (`cd_album`) REFERENCES `album` (`cd_album`);
+
+--
+-- Limitadores para a tabela `biblioteca_musica`
+--
+ALTER TABLE `biblioteca_musica`
+  ADD CONSTRAINT `biblioteca_musica_ibfk_1` FOREIGN KEY (`cd_musica`) REFERENCES `musica` (`cd_musica`),
+  ADD CONSTRAINT `biblioteca_musica_ibfk_2` FOREIGN KEY (`cd_biblioteca`) REFERENCES `biblioteca` (`cd_biblioteca`);
+
+--
+-- Limitadores para a tabela `compra`
+--
+ALTER TABLE `compra`
+  ADD CONSTRAINT `compra_ibfk_1` FOREIGN KEY (`cd_usu`) REFERENCES `usuario` (`cd_usu`);
+
+--
+-- Limitadores para a tabela `musica_album`
+--
+ALTER TABLE `musica_album`
+  ADD CONSTRAINT `musica_album_ibfk_1` FOREIGN KEY (`cd_album`) REFERENCES `album` (`cd_album`),
+  ADD CONSTRAINT `musica_album_ibfk_2` FOREIGN KEY (`cd_musica`) REFERENCES `musica` (`cd_musica`);
+
+--
+-- Limitadores para a tabela `musica_compra`
+--
+ALTER TABLE `musica_compra`
+  ADD CONSTRAINT `musica_compra_ibfk_1` FOREIGN KEY (`cd_compra`) REFERENCES `compra` (`cd_compra`),
+  ADD CONSTRAINT `musica_compra_ibfk_2` FOREIGN KEY (`cd_musica`) REFERENCES `musica` (`cd_musica`);
+
+--
+-- Limitadores para a tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`cd_biblioteca`) REFERENCES `biblioteca` (`cd_biblioteca`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

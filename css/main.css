@@ -1,0 +1,42 @@
+#logo{
+    text-decoration: underline;
+    text-decoration-style: double;
+    margin: 0px 0px 0px 10%;
+    font-size: 24px;
+}
+
+#logo:hover{
+    animation-name: changecolor;
+    animation-duration: 0.7s;
+}
+
+@keyframes changecolor{
+    0%{
+        color: #ffffff;
+    }
+    50%{
+        color: #cdcdcd;
+    }
+
+    100%{
+        color: #ffffff;
+    }
+}
+
+#slogan{
+    margin-top: 130px;
+}
+
+#slogan h1{ 
+    color:#ffffff;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    font-size: 40px; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.music-card{
+    margin: 1% 0px 0px 1%;
+    height: 230px;
+    width: 170px;   
+}
